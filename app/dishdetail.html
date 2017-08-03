@@ -28,7 +28,7 @@
     <div class="container">
         <div class="row row-content" ng-controller="dishDetailController as  dishCtrl">
             <div class="col-xs-12">
-
+              <li class="media" ng-repeat="dish in dishCtrl">
                 <div class="media-left media-middle">
                         <a href="#">
                         <img class="media-object img-thumbnail"
@@ -42,7 +42,7 @@
                         <p>{{dish.description}}</p>
                        
                     </div>
-
+               </li> 
 
             </div>
             <div class="col-xs-9 col-xs-offset-1">

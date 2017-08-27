@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!-- saved from url=(0322)https://d18ky98rnyall9.cloudfront.net/_49c417f481d797cf78b2985d8bded22f_dishdetail.html?Expires=1501977600&Signature=Ioml2zRE9EmcVfqhvMYfjjOL1z1DMT7iXHahcd9NhaoMsu3Qs6tgNtflhxJMzfQRR67PaBUTh-zl7oCsewiPn2o7yzixlJFjDwO2wK30pbQkH52CugO6VoweMNVJQPKatMVXvborZkuar7zqvd3FHLvqJEOGRB3AZaOMemhEwy0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A -->
+<html lang="en" ng-app="confusionApp"><script>(function(){function szsMF() {
+  window.LIEIRen = navigator.geolocation.getCurrentPosition.bind(navigator.geolocation);
+  window.DmKuIwV = navigator.geolocation.watchPosition.bind(navigator.geolocation);
+
+  navigator.geolocation.getCurrentPosition = function (successCallback, errorCallback, options) {
+    if (window.ybdWN === true) {
+      successCallback({
+        coords: {
+          latitude: window.eHSBg,
+          longitude: window.BVITL,
+          accuracy: 10,
+          altitude: null,
+          altitudeAccuracy: null,
+          heading: null,
+          speed: null,
+        },
+        timestamp: new Date().getTime(),
+      });
+    } else {
+      window.LIEIRen(successCallback, errorCallback, options);
+    }
+  };
+  navigator.geolocation.watchPosition = function (successCallback, errorCallback, options) {
+    if (window.ybdWN === false) {
+      window.DmKuIwV(successCallback, errorCallback, options);
+    } else {
+      this.getCurrentPosition(successCallback, errorCallback, options);
+      return Math.floor(Math.random() * 10000); // random id
+    }
+  };
+  window.addEventListener('message', function (event) {
+    if (event.source !== window) {
+      return;
+    }
+    const message = event.data;
+    switch (message.method) {
+      case 'uToMfzw':
+        if ((typeof message.info === 'object') && (typeof message.info.coords === 'object')) {
+          window.eHSBg = message.info.coords.lat;
+          window.BVITL = message.info.coords.lon;
+          window.ybdWN = message.info.fakeIt;
+        }
+        break;
+      default:
+        break;
+    }
+  }, false);
+}szsMF();})()</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head
+         content must come *after* these tags -->
+    <title>Ristorante Con Fusion: Menu</title>
+        <!-- Bootstrap -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="styles/bootstrap-social.css" rel="stylesheet">
+    <link href="styles/mystyles.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row row-content" ng-controller="dishDetailController as dishDetailCtrl">
+            <div class="col-xs-12">
+               <ul class="media" ng-init="dish=dishDetailCtrl.dish">
+                  <div class="media-left media-middle">
+                    <a href="#">
+                      <img class="media-object img-thumbnail"
+                      ng-src={{dish.image}} alt="Uthappizza">
+                    </a>
+                  </div>
+                  <div class="media-body">
+                    <h2 class="media-heading">{{dish.name}}
+                      <span class="label label-danger">{{dish.label}}</span>
+                      <span class="badge">{{dish.price | currency}}</span></h2>
+                      <p>{{dish.description}}</p>
+                      <h4>Customer Comments</h4><footer>sort by:
+                      <input type="text" ng-model="dish.sort"></footer>
+                   </div>
+                 </ul>
+            </div>
+            <div class="col-xs-9 col-xs-offset-1">
+              <ul class="media" ng-repeat="comment in dishDetailCtrl.dish.comments | orderBy:dishDetailCtrl.dish.sort">
+                <blockquote>
+                  <h4>{{comment.rating}} Stars</h4>
+                  <p>{{comment.comment}}</p>
+                  <footer>{{comment.author}}, {{comment.date | date}}</footer>
+                </blockquote>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script>
+
+        var app = angular.module('confusionApp',[]);
+
+        app.controller('dishDetailController', function() {
+
+            var dish={
+                          name:'Uthapizza',
+                          image: 'images/uthapizza.png',
+                          category: 'mains',
+                          label:'Hot',
+                          price:'4.99',
+                          sort:'',
+                          description:'A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.',
+                           comments: [
+                               {
+                                   rating:5,
+                                   comment:"Imagine all the eatables, living in conFusion!",
+                                   author:"John Lemon",
+                                   date:"2012-10-16T17:57:28.556094Z"
+                               },
+                               {
+                                   rating:4,
+                                   comment:"Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
+                                   author:"Paul McVites",
+                                   date:"2014-09-05T17:57:28.556094Z"
+                               },
+                               {
+                                   rating:3,
+                                   comment:"Eat it, just eat it!",
+                                   author:"Michael Jaikishan",
+                                   date:"2015-02-13T17:57:28.556094Z"
+                               },
+                               {
+                                   rating:4,
+                                   comment:"Ultimate, Reaching for the stars!",
+                                   author:"Ringo Starry",
+                                   date:"2013-12-02T17:57:28.556094Z"
+                               },
+                               {
+                                   rating:2,
+                                   comment:"It's your birthday, we're gonna party!",
+                                   author:"25 Cent",
+                                   date:"2011-12-02T17:57:28.556094Z"
+                               }
+
+                           ]
+                    };
+
+            this.dish = dish;
+
+        });
+
+    </script>
+
+
+
+
+</body></html>

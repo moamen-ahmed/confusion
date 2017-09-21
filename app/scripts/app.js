@@ -72,4 +72,17 @@ angular.module('confusionApp', []).controller('MenuController',['$scope',functio
   $scope.toggleDetails = function(){
     $scope.showDetails = !$scope.showDetails;
   };
-}]);
+}])
+
+.controller('ContactController',['$scope',function($scope){
+
+$scope.feedback={mychannel:"", firestName:"",lastName:"",agree:false,email:""}; 
+
+}])
+
+.controller('FeedbackController',['$scope',function($scope){
+
+
+
+}])
+;

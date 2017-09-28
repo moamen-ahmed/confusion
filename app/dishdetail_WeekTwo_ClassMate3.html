@@ -46,24 +46,19 @@
                 </div>
             </div>
             <div class="col-xs-9 col-xs-offset-1" ng-controller="DishCommentController">
-                <ul class="media-list">
-                <li class="media" ng-repeat="comment in dish.comments | orderBy:dish.orderby">
-                    <blockquote >
+                <ul>
+                    <blockquote ng-repeat="comment in dish.comments">
                         <p>{{comment.rating}} Stars</p>
                         <p>{{comment.comment}}</p>
                         <footer>{{comment.author}}, {{comment.date | date}}</footer>
                     </blockquote>
-                </li>
                 </ul>
-                
-                <ul class="list-unstyled" ng-show="commentForm.$valid && !commentForm.$pristine">
-                <li class="media">
+                <ul ng-show="commentForm.$valid && !commentForm.$pristine">
                     <blockquote>
                         <p>{{comment.rating}} Stars</p>
                         <p>{{comment.comment}}</p>
                         <footer>{{comment.author}}, {{comment.date | date}}</footer>
                     </blockquote>
-                </li> 
                 </ul>
                 <form class="form-horizontal" name="commentForm" ng-submit="submitComment()" novalidate>
                     <div class="form-group" ng-class="{ 'has-error':commentForm.author.$error.required &&
@@ -105,7 +100,6 @@
                         </div>
                     </div>
                 </form>
-            
             </div>
         </div>
     </div>
